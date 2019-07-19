@@ -2,6 +2,6 @@
     svcBase.call(this, "dashboard");
 
     this.getRequests = function (dcId) {
-        return $.authGet("/api/requests");
+        return $.authGet("/api/npv/requests");
     };
 });

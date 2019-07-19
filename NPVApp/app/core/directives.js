@@ -58,3 +58,39 @@ Vue.directive('pad-left', function (el, binding) {
 Vue.directive('pad-right', function (el, binding) {
     el.style.paddingRight = binding.value + 'px';
 });
+
+
+//////////////////// fonts
+Vue.directive('font-pt', function (el, binding) {
+    el.style.fontSize = binding.value + 'pt';
+});
+Vue.directive('font-pct', function (el, binding) {
+    el.style.fontSize = binding.value + '%';
+});
+Vue.directive('font-wt', function (el, binding) {
+    el.style.fontWeight = binding.value;
+});
+Vue.directive('bold', function (el, binding) {
+    el.style.fontWeight = 'bold';
+});
+Vue.directive('line-through', function (el) {
+    el.style.textDecoration = 'line-through';
+});
+Vue.directive('underline', function (el) {
+    el.style.textDecoration = 'underline';
+});
+Vue.directive('italic', function (el) {
+    el.style.fontStyle = 'italic';
+});
+
+
+//////////////////// whitespace
+Vue.directive('pre-wrap', function (el) {
+    el.style.whiteSpace = 'pre-wrap';
+});
+Vue.directive('no-wrap', function (el) {
+    el.style.whiteSpace = 'nowrap';
+});
+Vue.directive('normal-wrap', function (el) {
+    el.style.whiteSpace = 'normal';
+});
