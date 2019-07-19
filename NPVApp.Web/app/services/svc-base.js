@@ -12,9 +12,8 @@ $.authGet = function (url) {
         type: "GET",
         contentType: "application/json; charset=utf-8",
         url: url,
-        //headers: { Authorization: "Bearer " + vueSvc.auth.authToken() },
         error: function (error) {
-            //redirectToLoginPage(error);
+            console.log(error);
         }
     });
 };
@@ -26,9 +25,8 @@ $.authPost = function (url, data) {
         contentType: "application/json; charset=utf-8",
         url: url,
         data: json,
-        //headers: { Authorization: "Bearer " + vueSvc.auth.authToken() },
         error: function (error) {
-            //redirectToLoginPage(error);
+            console.log(error);
         }
     });
 };
@@ -41,9 +39,8 @@ $.authPut = function (url, data) {
         contentType: "application/json; charset=utf-8",
         url: url,
         data: json,
-        //headers: { Authorization: "Bearer " + vueSvc.auth.authToken() },
         error: function (error) {
-            //redirectToLoginPage(error);
+            console.log(error);
         }
     });
 };
@@ -54,9 +51,8 @@ $.authDelete = function (url) {
         type: "DELETE",
         contentType: "application/json; charset=utf-8",
         url: url,
-        //headers: { Authorization: "Bearer " + vueSvc.auth.authToken() },
         error: function (error) {
-            //redirectToLoginPage(error);
+            console.log(error);
         }
     });
 };
