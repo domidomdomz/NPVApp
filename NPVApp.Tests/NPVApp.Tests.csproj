@@ -72,7 +72,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\CalculateControllerTest.cs" />
     <Compile Include="Controllers\CalculateNPVRequestsControllerTest.cs" />
+    <Compile Include="Controllers\CalculateNPVResultsControllerTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

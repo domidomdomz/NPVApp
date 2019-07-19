@@ -19,17 +19,23 @@
                     <tr v-for="npvRequest in calculateNPVRequests">
                         <td>
                             <a href="javascript:;" @click="edit(npvRequest)" class="InitialInvestment">
-                                {{npvRequest.InitialInvestment | money}}
+                                {{ npvRequest.InitialInvestment | money(2) }}
                             </a>
                         </td>
                         <td v-no-wrap>
-                            <span class="LowerBoundDiscountRate" v-html="npvRequest.LowerBoundDiscountRate"></span>
+                            <span class="LowerBoundDiscountRate">
+                                {{ npvRequest.LowerBoundDiscountRate | percentage(4) }}
+                            </span>
                         </td>
                         <td v-no-wrap>
-                            <span class="UpperBoundDiscountRate" v-html="npvRequest.UpperBoundDiscountRate"></span>
+                            <span class="UpperBoundDiscountRate">
+                                {{ npvRequest.UpperBoundDiscountRate | percentage(4) }}
+                            </span>
                         </td>
                         <td v-no-wrap>
-                            <span class="DiscountRateIncrement" v-html="npvRequest.DiscountRateIncrement"></span>
+                            <span class="DiscountRateIncrement">
+                                {{ npvRequest.DiscountRateIncrement | percentage(4) }}
+                            </span>
                         </td>
                         <td v-no-wrap>
                             <span class="CashFlowValues" v-html="npvRequest.CashFlowValues"></span>
