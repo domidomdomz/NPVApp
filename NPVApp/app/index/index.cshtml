@@ -1,0 +1,26 @@
+﻿<!DOCTYPE html>
+<html dir="ltr" lang="en-US">
+@{
+    HttpContext.Current.Response.Cache.SetExpires(DateTime.UtcNow.AddDays(-1));
+    HttpContext.Current.Response.Cache.SetValidUntilExpires(false);
+    HttpContext.Current.Response.Cache.SetRevalidation(HttpCacheRevalidation.AllCaches);
+    HttpContext.Current.Response.Cache.SetCacheability(HttpCacheability.NoCache);
+    HttpContext.Current.Response.Cache.SetNoStore();
+}
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    @RenderPage("styles.cshtml")
+    <div id="app">
+
+        <div class="container-fluid">
+            
+            <router-view></router-view>
+            
+        </div>
+    </div>
+
+    @RenderPage("end-scripts.cshtml")
+</body>
+</html>

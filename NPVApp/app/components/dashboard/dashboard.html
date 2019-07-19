@@ -1,0 +1,47 @@
+﻿<div class="row">
+
+    <div class="col-md-12">
+
+        <div class="card card-primary">
+            <div class="card-header" v-bold>Net Present Value (NPV) Calculator</div>
+            <div class="card-body" v-pad-left="15" v-pad-right="15">
+
+
+                <table class="grid-table table table-bordered table-condensed">
+                    <tr class="info">
+                        <th v-width="200">Initial Investment</th>
+                        <th v-width="200">Lowerbound Discount Rate</th>
+                        <th v-width="200">Upperbound Discount Rate</th>
+                        <th v-width="200">Discount Rate Increment</th>
+                        <th v-width="300">Cash Flow</th>
+                        <th v-width="200">Request Date</th>
+                    </tr>
+                    <tr v-for="npvRequest in calculateNPVRequests">
+                        <td>
+                            <a href="javascript:;" @click="edit(npvRequest)" class="InitialInvestment">
+                                {{npvRequest.InitialInvestment | money}}
+                            </a>
+                        </td>
+                        <td v-no-wrap>
+                            <span class="LowerBoundDiscountRate" v-html="npvRequest.LowerBoundDiscountRate"></span>
+                        </td>
+                        <td v-no-wrap>
+                            <span class="UpperBoundDiscountRate" v-html="npvRequest.UpperBoundDiscountRate"></span>
+                        </td>
+                        <td v-no-wrap>
+                            <span class="DiscountRateIncrement" v-html="npvRequest.DiscountRateIncrement"></span>
+                        </td>
+                        <td v-no-wrap>
+                            <span class="CashFlowValues" v-html="npvRequest.CashFlowValues"></span>
+                        </td>
+                        <td v-no-wrap>
+                            <span class="CreateDate">{{npvRequest.CreateDate | shortDateTimeWithSeconds}}</span>
+                        </td>
+                    </tr>
+                </table>
+
+
+            </div>
+        </div>
+    </div>
+</div>

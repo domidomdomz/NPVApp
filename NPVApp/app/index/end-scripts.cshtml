@@ -1,0 +1,33 @@
+﻿@{
+
+    var BuildDate = DateTime.Now.ToString("yyyy.MMdd.hhmm.ss");
+
+    @*libraries*@
+    <script src="/node_modules/jquery/dist/jquery.js?v=@BuildDate"></script>
+    <script src="/node_modules/vue/dist/vue.js?v=@BuildDate"></script>
+    <script src="/node_modules/vue-router/dist/vue-router.js?v=@BuildDate"></script>
+    <script src="/node_modules/popper.js/dist/umd/popper.min.js?v=@BuildDate"></script>
+    <script src="/node_modules/bootstrap/dist/js/bootstrap.js?v=@BuildDate"></script>
+    <script src="/node_modules/moment/min/moment.min.js?v=@BuildDate"></script>
+    <script src="/node_modules/lodash/lodash.min.js?v=@BuildDate"></script>
+    <script src="/node_modules/notifyjs-browser/dist/notify.js?v=@BuildDate"></script>
+    <script src="/node_modules/sweetalert/dist/sweetalert.min.js?v=@BuildDate"></script>
+
+    @*services-core*@
+    <script src="/app/core/service.js?v=@BuildDate"></script>
+    <script src="/app/services/svc-base.js?v=@BuildDate"></script>
+
+    @*services*@
+    <script src="/app/services/templates-svc.js?v=@BuildDate"></script>
+
+    @*components*@
+    <script src="/app/components/dashboard/dashboard.js?v=@BuildDate"></script>
+
+    @*app*@
+    <script src="/app/core/common.js?v=@BuildDate"></script>
+    <script src="/app/core/routes.js?v=@BuildDate"></script>
+    <script src="/app/core/router.js?v=@BuildDate"></script>
+    <script src="/app/core/directives.js?v=@BuildDate"></script>
+    <script src="/app/core/filters.js?v=@BuildDate"></script>
+    <script src="/app/core/app.js?v=@BuildDate"></script>
+}
