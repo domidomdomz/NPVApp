@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NPVApp.Business;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -10,35 +11,29 @@ namespace NPVApp.Web.Controllers
 {
     public class CalculateNPVRequestsController : ApiController
     {
+        protected ICalculateNPVRequestsLogic CalculateNPVRequestsLogic;
+        public CalculateNPVRequestsController(ICalculateNPVRequestsLogic calculateNPVRequestsLogic)
+        {
+            CalculateNPVRequestsLogic = calculateNPVRequestsLogic;
+        }
+
         [HttpGet]
         [Route("api/npv/requests")]
         public async Task<IHttpActionResult> Get()
         {
 
-            var mockCalculateRequests = new List<CalculateNPVRequest>
+            try
             {
-                new CalculateNPVRequest
-                {
-                    InitialInvestment = 10000,
-                    LowerBoundDiscountRate = 0.01,
-                    UpperBoundDiscountRate = 0.015,
-                    DiscountRateIncrement = 0.0025,
-                    CashFlowValues = "1000, 2000, 1000"
-                }
-            };
-
-            return Json(mockCalculateRequests);
+                var calculateNPVRequests = await CalculateNPVRequestsLogic.GetAllAsync("", null, "CalculateNPVRequests.CreateDate");
+                return Ok(calculateNPVRequests);
+            }
+            catch (Exception ex)
+            {
+                // Put logging here
+                return new BadRequestWithErrorsResult(ex);
+            }
         }
 
 
-    }
-
-    public class CalculateNPVRequest
-    {
-        public decimal InitialInvestment { get; set; }
-        public double LowerBoundDiscountRate { get; set; }
-        public double UpperBoundDiscountRate { get; set; }
-        public double DiscountRateIncrement { get; set; }
-        public string CashFlowValues { get; set; }
     }
 }
