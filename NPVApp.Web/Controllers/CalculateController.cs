@@ -22,7 +22,7 @@ namespace NPVApp.Web.Controllers
         [HttpPost]
         [AllowAnonymous]
         [Route("api/npv/calculate")]
-        public async Task<IHttpActionResult> CreateConsignment(CalculateNPVApiRequest request)
+        public async Task<IHttpActionResult> CalculateNPV(CalculateNPVApiRequest request)
         {
             try
             {

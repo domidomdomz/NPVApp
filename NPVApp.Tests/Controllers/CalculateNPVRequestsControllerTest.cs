@@ -47,8 +47,6 @@ namespace NPVApp.Tests.Controllers
         public void ShouldThrowBadRequestIfLogicThrowsException()
         {
             //Arrange
-            var mockResult = GetMockResult();
-
             _calculateNPVRequestsLogic.Setup(x => x.GetAllAsync(It.IsAny<string>(), It.IsAny<object>(), It.IsAny<string>()))
                 .Throws(new System.Exception());
 
