@@ -17,13 +17,12 @@ namespace NPVApp.Business
 
         public async Task<int> ManageNPVCalculation(CalculateNPVApiRequest request)
         {
-
             var calculateNPVRequest = new CalculateNPVRequest
             {
-                InitialInvestment = request.InitialInvestment,
-                LowerBoundDiscountRate = request.LowerBoundDiscountRate,
-                UpperBoundDiscountRate = request.UpperBoundDiscountRate,
-                DiscountRateIncrement = request.DiscountRateIncrement
+                InitialInvestment = request.InitialInvestment.Value / 100,
+                LowerBoundDiscountRate = request.LowerBoundDiscountRate.Value / 100,
+                UpperBoundDiscountRate = request.UpperBoundDiscountRate.Value / 100,
+                DiscountRateIncrement = request.DiscountRateIncrement.Value / 100
             };
             var requestId = await DB.InsertAsync(calculateNPVRequest);
 
@@ -43,10 +42,10 @@ namespace NPVApp.Business
             await DB.InsertListAsync<CashFlow>(cashFlows);
 
 
-            var currentDiscountRate = request.LowerBoundDiscountRate;
-            while ((decimal)request.UpperBoundDiscountRate >= (decimal)currentDiscountRate)
+            var currentDiscountRate = calculateNPVRequest.LowerBoundDiscountRate;
+            while ((decimal)calculateNPVRequest.UpperBoundDiscountRate >= (decimal)currentDiscountRate)
             {
-                var computedNPV = ComputeNPV(request.InitialInvestment, currentDiscountRate, cashFlows);
+                var computedNPV = ComputeNPV(calculateNPVRequest.InitialInvestment, currentDiscountRate, cashFlows);
                 var calculateNPVResult = new CalculateNPVResult
                 {
                     RequestId = requestId,
@@ -55,10 +54,10 @@ namespace NPVApp.Business
                 };
                 await DB.InsertAsync(calculateNPVResult);
 
-                if ((decimal)request.UpperBoundDiscountRate == (decimal)currentDiscountRate)
+                if ((decimal)calculateNPVRequest.UpperBoundDiscountRate == (decimal)currentDiscountRate)
                     break;
 
-                currentDiscountRate = currentDiscountRate + request.DiscountRateIncrement;
+                currentDiscountRate = currentDiscountRate + calculateNPVRequest.DiscountRateIncrement;
             }
 
             return requestId;

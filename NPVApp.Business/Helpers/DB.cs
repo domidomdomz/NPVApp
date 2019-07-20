@@ -74,7 +74,7 @@ namespace NPVApp.Business
                     var table = Util.GetTableName(typeof(TEntity));
                     var sql = $@"
 {new TEntity().DefaultQuery}
-AND {table}.Id=@Id";
+WHERE {table}.Id=@Id";
                     var sqlParams = new { Id = id };
                     var entity = await connection.QueryFirstOrDefaultAsync<TEntity>(sql, sqlParams);
                     return entity;

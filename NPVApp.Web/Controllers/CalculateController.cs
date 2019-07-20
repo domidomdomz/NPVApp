@@ -26,6 +26,10 @@ namespace NPVApp.Web.Controllers
         {
             try
             {
+                if (!ModelState.IsValid)
+                {
+                    return new BadRequestWithErrorsResult(ModelState);
+                }
                 var requestId = await CalculationLogic.ManageNPVCalculation(request);
                 return Ok(requestId);
             }

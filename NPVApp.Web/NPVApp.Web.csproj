@@ -110,8 +110,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="app\components\calculate\npvForm.html" />
+    <Content Include="app\components\calculate\npvForm.js" />
     <Content Include="app\components\dashboard\dashboard.html" />
     <Content Include="app\components\dashboard\dashboard.js" />
+    <Content Include="app\components\shared\breadcrumb.html" />
+    <Content Include="app\components\shared\breadcrumb.js" />
     <Content Include="app\core\app.js" />
     <Content Include="app\core\common.js" />
     <Content Include="app\core\directives.js" />
@@ -119,10 +123,13 @@
     <Content Include="app\core\router.js" />
     <Content Include="app\core\routes.js" />
     <Content Include="app\core\service.js" />
+    <Content Include="app\services\calculate-svc.js" />
     <Content Include="app\services\dashboard-svc.js" />
+    <Content Include="app\services\results-svc.js" />
     <Content Include="app\services\svc-base.js" />
     <Content Include="app\services\templates-svc.js" />
     <Content Include="Global.asax" />
+    <Content Include="styles\npvapp.css" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>

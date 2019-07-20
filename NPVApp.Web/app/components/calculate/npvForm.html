@@ -1,0 +1,171 @@
+﻿<div>
+
+    <breadcrumb v-if="id"
+                text1="Dashboard" route1="/"
+                text2="View Result" :route2="'/calculate/result/' + id"></breadcrumb>
+    <breadcrumb v-else :value="id"
+                text1="Dashboard" route1="/"
+                text2="New Calculate" route2="/calculate"></breadcrumb>
+
+    <br />
+
+    <div class="row">
+        <div class="col-md-2 control-label">
+            <label for="InitialInvestment">Initial Investment:</label>
+        </div>
+        <div class="col-md-5">
+            <div class="input-group" v-if="calculateNPVRequest.Id == 0">
+                <div class="input-group-append">
+                    <span class="input-group-text">$</span>
+                </div>
+                <input id="InitialInvestment" v-model="calculateNPVRequest.InitialInvestment"
+                       type="number" min="0"
+                       onkeypress="return isInputPositiveDecimal(event)" class="form-control input input-sm" />
+            </div>
+            <span v-if="calculateNPVRequest.Id > 0" class="form-control input input-sm">
+                {{ calculateNPVRequest.InitialInvestment | money(2) }}
+            </span>
+            <div class="validation-error" v-html="getError('request.InitialInvestment')"></div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-2 control-label">
+            <label for="LowerBoundDiscountRate">Lower Bound Discount Rate:</label>
+        </div>
+        <div class="col-md-5">
+            <div class="input-group" v-if="calculateNPVRequest.Id == 0">
+                <input id="LowerBoundDiscountRate" v-model="calculateNPVRequest.LowerBoundDiscountRate"
+                       type="number" min="0" max="99.999" step="0.01" maxlength="6"
+                       onkeypress="return isInputPositiveDecimal(event)" oninput="applyMaxlength(this)"
+                       class="form-control input input-sm" />
+                <div class="input-group-append">
+                    <span class="input-group-text">%</span>
+                </div>
+            </div>
+            <span v-if="calculateNPVRequest.Id > 0" class="form-control input input-sm">
+                {{ calculateNPVRequest.LowerBoundDiscountRate | percentage(4) }}
+            </span>
+            <div class="validation-error" v-html="getError('request.LowerBoundDiscountRate')"></div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-2 control-label">
+            <label for="UpperBoundDiscountRate">Upper Bound Discount Rate:</label>
+        </div>
+        <div class="col-md-5">
+            <div class="input-group" v-if="calculateNPVRequest.Id == 0">
+                <input id="UpperBoundDiscountRate" v-model="calculateNPVRequest.UpperBoundDiscountRate"
+                       type="number" min="0" max="99.999" step="0.01" maxlength="6"
+                       onkeypress="return isInputPositiveDecimal(event)" oninput="applyMaxlength(this)"
+                       class="form-control input input-sm" />
+                <div class="input-group-append">
+                    <span class="input-group-text">%</span>
+                </div>
+            </div>
+
+            <span v-if="calculateNPVRequest.Id > 0" class="form-control input input-sm">
+                {{ calculateNPVRequest.UpperBoundDiscountRate | percentage(4) }}
+            </span>
+            <div class="validation-error" v-html="getError('request.UpperBoundDiscountRate')"></div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-2 control-label">
+            <label for="DiscountRateIncrement">Discount Rate Increment:</label>
+        </div>
+        <div class="col-md-5">
+            <div class="input-group" v-if="calculateNPVRequest.Id == 0">
+                <input id="DiscountRateIncrement" v-model="calculateNPVRequest.DiscountRateIncrement"
+                       type="number" min="0" max="99.999" step="0.01" maxlength="6"
+                       onkeypress="return isInputPositiveDecimal(event)" oninput="applyMaxlength(this)"
+                       class="form-control input input-sm" />
+                <div class="input-group-append">
+                    <span class="input-group-text">%</span>
+                </div>
+            </div>
+
+            <span v-if="calculateNPVRequest.Id > 0" class="form-control input input-sm">
+                {{ calculateNPVRequest.DiscountRateIncrement | percentage(4) }}
+            </span>
+            <div class="validation-error" v-html="getError('request.DiscountRateIncrement')"></div>
+        </div>
+    </div>
+
+    <div v-pad-bottom="8" class="row">
+        <div class="col-md-7">
+            <table class="grid-table table table-bordered table-condensed">
+                <tr class="info">
+                    <th v-width="150">Cash Flow #</th>
+                    <th>Cash Flow Value</th>
+                    <th v-width="30" v-if="calculateNPVRequest.Id == 0"></th>
+                </tr>
+                <tr v-for="(cashFlow, index) in calculateNPVRequest.CashFlows"
+                    :key="index">
+                    <td>
+                        <span>{{ index + 1 }}</span>
+                    </td>
+                    <td>
+                        <div class="input-group" v-if="calculateNPVRequest.Id == 0">
+                            <div class="input-group-append">
+                                <span class="input-group-text">$</span>
+                            </div>
+                            <input v-model="cashFlow.CashFlowValue" class="ServiceCode form-control input input-sm"
+                                   type="number" min="0" onkeypress="return isInputPositiveDecimal(event)" />
+                        </div>
+                        <span v-if="calculateNPVRequest.Id > 0" class="form-control input input-sm">
+                            {{ cashFlow.CashFlowValue | money(2) }}
+                        </span>
+                    </td>
+                    <td v-center v-middle v-if="calculateNPVRequest.Id == 0">
+                        <span class="glyphicon glyphicon-remove" title="Remove service" @click="removeCashFlow(index)" v-hand v-color="'red'" id="removeCashFlow"></span>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <div v-pad-bottom="8">
+        <button class="btn btn-sm btn-primary" @click="addCashFlow()"
+                v-if="calculateNPVRequest.Id == 0" id="AddCashFlow">
+            Add Cash Flow
+        </button>
+
+        <button class="btn btn-sm btn-primary"
+                v-if="calculateNPVRequest.Id == 0"
+                @click="calculateNPV()" id="CalculateNPV">
+            Calculate NPV and Save
+        </button>
+    </div>
+
+
+    <br />
+    <!-- NPV RESULTS -->
+    <div class="row">
+        <div class="col-md-7">
+            <div v-if="calculateNPVRequest.Id > 0">
+
+                <h6 v-bold>RESULTS</h6>
+
+                <table class="grid-table table table-bordered table-condensed">
+                    <tr class="info">
+                        <th v-width="150">Discount Rate</th>
+                        <th>Net Present Value</th>
+                    </tr>
+                    <tr v-for="calculateNPVResult in calculateNPVResults">
+                        <td>
+                            <span>{{ calculateNPVResult.DiscountRate | percentage(4) }}</span>
+                        </td>
+                        <td>
+                            <span v-if="calculateNPVResult.NetPresentValue > 0" v-bold v-color="'green'">{{ calculateNPVResult.NetPresentValue | money(2) }}</span>
+                            <span v-else v-bold v-color="'red'">{{ calculateNPVResult.NetPresentValue | money(2) }}</span>
+                        </td>
+                    </tr>
+                </table>
+
+            </div>
+        </div>
+    </div>
+</div>

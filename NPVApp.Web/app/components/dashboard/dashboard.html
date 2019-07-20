@@ -1,53 +1,60 @@
-﻿<div class="row">
+﻿
 
-    <div class="col-md-12">
+<div>
 
-        <div class="card card-primary">
-            <div class="card-header" v-bold>Net Present Value (NPV) Calculator</div>
-            <div class="card-body" v-pad-left="15" v-pad-right="15">
+    <breadcrumb text1="Dashboard" route1="/"></breadcrumb>
+    <br />
 
+    <table class="grid-table table table-bordered table-condensed">
+        <tr class="info">
+            <th>Initial Investment</th>
+            <th>Lowerbound Discount Rate</th>
+            <th>Upperbound Discount Rate</th>
+            <th>Discount Rate Increment</th>
+            <th>Cash Flow</th>
+            <th>Request Date</th>
+            <th></th>
+        </tr>
+        <tr v-for="npvRequest in calculateNPVRequests">
+            <td>
+                <a href="javascript:;" @click="viewCalculateRequest(npvRequest.Id)" class="InitialInvestment">
+                    {{ npvRequest.InitialInvestment | money(2) }}
+                </a>
+            </td>
+            <td v-no-wrap>
+                <span class="LowerBoundDiscountRate">
+                    {{ npvRequest.LowerBoundDiscountRate | percentage(4) }}
+                </span>
+            </td>
+            <td v-no-wrap>
+                <span class="UpperBoundDiscountRate">
+                    {{ npvRequest.UpperBoundDiscountRate | percentage(4) }}
+                </span>
+            </td>
+            <td v-no-wrap>
+                <span class="DiscountRateIncrement">
+                    {{ npvRequest.DiscountRateIncrement | percentage(4) }}
+                </span>
+            </td>
+            <td v-no-wrap>
+                <span class="CashFlowValues" v-html="npvRequest.CashFlowValues"></span>
+            </td>
+            <td v-normal-wrap v-center>
+                <span class="CreateDate">{{npvRequest.CreateDate | shortDateTimeWithSeconds}}</span>
+            </td>
+            <td v-center>
+                <a href="javascript:;" @click="viewCalculateRequest(npvRequest.Id)">
+                    View Computed NPVs
+                </a>
+            </td>
+        </tr>
+    </table>
 
-                <table class="grid-table table table-bordered table-condensed">
-                    <tr class="info">
-                        <th v-width="200">Initial Investment</th>
-                        <th v-width="200">Lowerbound Discount Rate</th>
-                        <th v-width="200">Upperbound Discount Rate</th>
-                        <th v-width="200">Discount Rate Increment</th>
-                        <th v-width="300">Cash Flow</th>
-                        <th v-width="200">Request Date</th>
-                    </tr>
-                    <tr v-for="npvRequest in calculateNPVRequests">
-                        <td>
-                            <a href="javascript:;" @click="edit(npvRequest)" class="InitialInvestment">
-                                {{ npvRequest.InitialInvestment | money(2) }}
-                            </a>
-                        </td>
-                        <td v-no-wrap>
-                            <span class="LowerBoundDiscountRate">
-                                {{ npvRequest.LowerBoundDiscountRate | percentage(4) }}
-                            </span>
-                        </td>
-                        <td v-no-wrap>
-                            <span class="UpperBoundDiscountRate">
-                                {{ npvRequest.UpperBoundDiscountRate | percentage(4) }}
-                            </span>
-                        </td>
-                        <td v-no-wrap>
-                            <span class="DiscountRateIncrement">
-                                {{ npvRequest.DiscountRateIncrement | percentage(4) }}
-                            </span>
-                        </td>
-                        <td v-no-wrap>
-                            <span class="CashFlowValues" v-html="npvRequest.CashFlowValues"></span>
-                        </td>
-                        <td v-no-wrap>
-                            <span class="CreateDate">{{npvRequest.CreateDate | shortDateTimeWithSeconds}}</span>
-                        </td>
-                    </tr>
-                </table>
-
-
-            </div>
-        </div>
+    <div>
+        <button class="btn btn-sm btn-primary"
+                @click="goToCalculate()">
+            New Calculate
+        </button>
     </div>
+
 </div>

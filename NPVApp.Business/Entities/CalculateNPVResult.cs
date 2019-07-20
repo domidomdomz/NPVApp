@@ -46,7 +46,6 @@ namespace NPVApp.Business
             {
                 return @"
 SELECT CalculateNPVResults.*,
-CalculateNPVRequests.InitialInvestment,
 (SELECT DISTINCT CF.Id, CF.RequestId, CF.CashFlowValue, CF.CashFlowOrder
 			FROM dbo.CashFlows CF
 			INNER JOIN dbo.CalculateNPVRequests RQ ON RQ.Id = CF.RequestId

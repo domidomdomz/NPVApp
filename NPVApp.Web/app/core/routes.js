@@ -5,7 +5,7 @@
     { path: '*', component: dashboardComponent },
 
     //// calculate npv
-    //{ path: "/calculate", component: npvFormComponent, meta: { title: "Calculate NPV" } },
+    { path: "/calculate", component: npvFormComponent, meta: { title: "Calculate NPV" } },
 
-    //{ path: "/calculate/result/:id", component: npvFormComponent, meta: { title: "NPV Result" } }
+    { path: "/calculate/result/:id", component: npvFormComponent, meta: { title: "NPV Result" } }
 ];

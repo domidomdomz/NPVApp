@@ -4,6 +4,10 @@
     }
 });
 
+Vue.directive('hand', function (el) {
+    el.style.cursor = 'pointer';
+});
+
 //////////////////// sizes
 Vue.directive('width', function (el, binding) {
     el.style.width = binding.value + 'px';
@@ -93,4 +97,35 @@ Vue.directive('no-wrap', function (el) {
 });
 Vue.directive('normal-wrap', function (el) {
     el.style.whiteSpace = 'normal';
+});
+
+
+//////////////////// color
+Vue.directive('color', function (el, binding) {
+    el.style.color = binding.value;
+});
+Vue.directive('bg-color', function (el, binding) {
+    el.style.backgroundColor = binding.value;
+});
+
+//////////////////// text align
+Vue.directive('center', function (el) {
+    el.style.textAlign = 'center';
+});
+Vue.directive('left', function (el) {
+    el.style.textAlign = 'left';
+});
+Vue.directive('right', function (el) {
+    el.style.textAlign = 'right';
+});
+
+//////////////////// vertical align
+Vue.directive('top', function (el) {
+    el.style.verticalAlign = 'top';
+});
+Vue.directive('middle', function (el) {
+    el.style.verticalAlign = 'middle';
+});
+Vue.directive('bottom', function (el) {
+    el.style.verticalAlign = 'bottom';
 });

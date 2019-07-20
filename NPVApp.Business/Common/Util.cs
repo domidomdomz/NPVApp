@@ -10,6 +10,8 @@ namespace NPVApp.Business
     public static class Util
     {
         public const string AnErrorHasOccured = "An error has occured.";
+        public const string FieldRequired = @"{0} is required.";
+        public const string ValidationIssues = @"Unable to save record as there were validation issues.";
 
         public static string ConnectionString(string key)
         {
@@ -23,6 +25,16 @@ namespace NPVApp.Business
             var tableAttributes = customAttrinbutes.SingleOrDefault(m => m.GetType().Name == typeof(Dapper.TableAttribute).Name) as dynamic;
             tableName = tableAttributes?.Name ?? tableName;
             return tableName;
+        }
+
+        public static Boolean IsEmpty(this string str)
+        {
+            return (str ?? "").Trim().Length == 0;
+        }
+
+        public static Boolean IsNotEmpty(this string str)
+        {
+            return !str.IsEmpty();
         }
     }
 }

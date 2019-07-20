@@ -1,0 +1,12 @@
+﻿
+<div id="breadcrumb">
+    <router-link :to="route1" v-if="text1">{{text1}}</router-link>
+    <span v-if="text2"> > </span>
+    <router-link :to="route2" v-if="text2">{{text2}}</router-link>
+    <span v-if="text3"> > </span>
+    <router-link :to="route3" v-if="text3">{{text3}}</router-link>
+    <span v-if="text4"> > </span>
+    <router-link :to="route4" v-if="text4">{{text4}}</router-link>
+    <span v-if="text5"> > </span>
+    <router-link :to="route5" v-if="text5">{{text5}}</router-link>
+</div>

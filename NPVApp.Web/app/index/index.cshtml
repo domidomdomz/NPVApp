@@ -15,9 +15,23 @@
     <div id="app">
 
         <div class="container-fluid">
-            
-            <router-view></router-view>
-            
+
+
+            <div class="row">
+
+                <div class="col-md-12" v-pad-top="16">
+
+                    <div class="card card-primary">
+                        <div class="card-header" v-bold>Net Present Value (NPV) Calculator</div>
+                        <div class="card-body" v-pad-left="15" v-pad-right="15">
+
+                            <router-view></router-view>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </div>
 

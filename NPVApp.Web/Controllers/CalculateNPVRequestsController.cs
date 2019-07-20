@@ -34,6 +34,23 @@ namespace NPVApp.Web.Controllers
             }
         }
 
+        [HttpGet]
+        [Route("api/npv/requests")]
+        public async Task<IHttpActionResult> GetById(int id)
+        {
+
+            try
+            {
+                var calculateNPVRequest = await CalculateNPVRequestsLogic.GetAsync(id);
+                return Ok(calculateNPVRequest);
+            }
+            catch (Exception ex)
+            {
+                // Put logging here
+                return new BadRequestWithErrorsResult(ex);
+            }
+        }
+
 
     }
 }
