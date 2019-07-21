@@ -33,17 +33,12 @@ Publish database via Publish profile XML file
 
 Modify the DB connection string on the Web.config
 
-```
 Inside NPVApp.Web, open the Wen.config file and modify the username and password for your local machine's SQL Server
 ![Image of Step 2.1](https://user-images.githubusercontent.com/6851315/61589638-7de92980-abdf-11e9-896b-d215ce5c8493.png)
 
-```
 
 Build and Run the web application
 
-```
 Press Ctrl + F5 to Build and Run the web application
 ![Image of Step 2.1](https://user-images.githubusercontent.com/6851315/61589679-239c9880-abe0-11e9-86e1-e064f468c748.png)
-
-```
 
