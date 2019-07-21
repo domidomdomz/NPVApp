@@ -16,7 +16,6 @@ Visual Studio 2017 or newer (Community Edition will do)
 
 Publish database via Publish profile XML file
 
-```
 1. Inside NPVApp.Database folder, double-click NPVApp.Database.publish.xml
 ![Image of Step 1.1](https://user-images.githubusercontent.com/6851315/61589553-1e3e4e80-abde-11e9-8353-512fd4559b4e.png)
 
@@ -30,7 +29,7 @@ Publish database via Publish profile XML file
 4. Click "Publish". On the Data Tools Operation window, a successful publish looks like this:
 ![Image of Step 1.4](https://user-images.githubusercontent.com/6851315/61589589-c8b67180-abde-11e9-8286-39a4dfc7b053.png)
 
-```
+
 
 Modify the DB connection string on the Web.config
 
