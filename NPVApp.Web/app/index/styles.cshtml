@@ -1,4 +1,10 @@
-﻿@{
+﻿@if (System.Configuration.ConfigurationManager.AppSettings["Minified"] == "1")
+{
+    <link href="/dist/npv-lib.min.css?v=BUILD_DATE" rel="stylesheet" />
+    <link href="/dist/npv-app.min.css?v=BUILD_DATE" rel="stylesheet" />
+}
+else
+{
 
     var BuildDate = DateTime.Now.ToString("yyyy.MMdd.hhmm.ss");
     <link href="/node_modules/bootstrap/dist/css/bootstrap.min.css?v=@BuildDate" rel="stylesheet" />

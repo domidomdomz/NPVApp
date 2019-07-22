@@ -41,6 +41,13 @@ Build and Run the web application
 Press Ctrl + F5 to Build and Run the web application
 ![Image of Step 2.1](https://user-images.githubusercontent.com/6851315/61589679-239c9880-abe0-11e9-86e1-e064f468c748.png)
 
+**Optional**
+If you want to minify the js and css files, kindly open the **Task Runner Explorer** and run the default task
+![Image of Step 3.1](https://user-images.githubusercontent.com/6851315/61605565-b4bf4e00-ac78-11e9-9afe-218f1fa12c5d.png)
+
+Change the *Minified* key in the Web.config to **"1"**
+![Image of Step 3.2](https://user-images.githubusercontent.com/6851315/61605566-b7ba3e80-ac78-11e9-88f7-64da496f2a88.png)
+
 
 ### Demo
 

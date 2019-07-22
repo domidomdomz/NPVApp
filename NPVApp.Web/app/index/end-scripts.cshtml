@@ -1,4 +1,10 @@
-﻿@{
+﻿@if (System.Configuration.ConfigurationManager.AppSettings["Minified"] == "1")
+{
+    <script src="/dist/npv-lib.min.js?v=BUILD_DATE"></script>
+    <script src="/dist/npv-app.min.js?v=BUILD_DATE"></script>
+}
+else
+{
 
     var BuildDate = DateTime.Now.ToString("yyyy.MMdd.hhmm.ss");
 
@@ -35,4 +41,5 @@
     <script src="/app/core/directives.js?v=@BuildDate"></script>
     <script src="/app/core/filters.js?v=@BuildDate"></script>
     <script src="/app/core/app.js?v=@BuildDate"></script>
+
 }

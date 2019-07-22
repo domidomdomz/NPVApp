@@ -129,6 +129,7 @@
     <Content Include="app\services\svc-base.js" />
     <Content Include="app\services\templates-svc.js" />
     <Content Include="Global.asax" />
+    <Content Include="Gruntfile.js" />
     <Content Include="styles\npvapp.css" />
     <Content Include="Web.config" />
   </ItemGroup>
