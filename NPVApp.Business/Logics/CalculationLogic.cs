@@ -25,8 +25,21 @@ namespace NPVApp.Business
                 DiscountRateIncrement = request.DiscountRateIncrement.Value / 100
             };
             var requestId = await DB.InsertAsync(calculateNPVRequest);
+            var cashFlows = await ManageCashFlows(request, requestId);
+            await ManageNPVResults(calculateNPVRequest, cashFlows, requestId);
 
+            return requestId;
+        }
 
+        private decimal ComputeNPV(decimal initialInvestment, double discountRate, List<CashFlow> cashFlows)
+        {
+            var npv = cashFlows.Select(x => x.CashFlowValue / Math.Pow((1 + discountRate), x.CashFlowOrder)).Sum();
+
+            return (decimal)npv - initialInvestment;
+        }
+
+        private async Task<List<CashFlow>> ManageCashFlows(CalculateNPVApiRequest request, int requestId)
+        {
             var cashFlows = new List<CashFlow>();
             var cashFlowOrder = 1;
             foreach (var cashFlow in request.CashFlows)
@@ -41,7 +54,11 @@ namespace NPVApp.Business
             }
             await DB.InsertListAsync<CashFlow>(cashFlows);
 
+            return cashFlows;
+        }
 
+        private async Task ManageNPVResults(CalculateNPVRequest calculateNPVRequest, List<CashFlow> cashFlows, int requestId)
+        {
             var currentDiscountRate = calculateNPVRequest.LowerBoundDiscountRate;
             while ((decimal)calculateNPVRequest.UpperBoundDiscountRate >= (decimal)currentDiscountRate)
             {
@@ -59,15 +76,6 @@ namespace NPVApp.Business
 
                 currentDiscountRate = currentDiscountRate + calculateNPVRequest.DiscountRateIncrement;
             }
-
-            return requestId;
-        }
-
-        private decimal ComputeNPV(decimal initialInvestment, double discountRate, List<CashFlow> cashFlows)
-        {
-            var npv = cashFlows.Select(x => x.CashFlowValue / Math.Pow((1 + discountRate), x.CashFlowOrder)).Sum();
-
-            return (decimal)npv - initialInvestment;
         }
 
     }
