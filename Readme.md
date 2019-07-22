@@ -17,6 +17,9 @@ Visual Studio 2017 or newer (Community Edition will do)
 
 ### Installing
 
+**Clean and Rebuild the solution**
+This is to make sure the **Roslyn** assembly files are successfully created on the bin folder
+
 **Publish database via Publish profile XML file**
 
 1. Inside NPVApp.Database folder, double-click NPVApp.Database.publish.xml
