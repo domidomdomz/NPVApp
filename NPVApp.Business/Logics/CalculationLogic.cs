@@ -19,7 +19,7 @@ namespace NPVApp.Business
         {
             var calculateNPVRequest = new CalculateNPVRequest
             {
-                InitialInvestment = request.InitialInvestment.Value / 100,
+                InitialInvestment = request.InitialInvestment.Value,
                 LowerBoundDiscountRate = request.LowerBoundDiscountRate.Value / 100,
                 UpperBoundDiscountRate = request.UpperBoundDiscountRate.Value / 100,
                 DiscountRateIncrement = request.DiscountRateIncrement.Value / 100

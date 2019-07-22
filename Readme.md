@@ -47,3 +47,23 @@ Press Ctrl + F5 to Build and Run the web application
 ![Image of Step 2.1](https://user-images.githubusercontent.com/6851315/61589679-239c9880-abe0-11e9-86e1-e064f468c748.png)
 
 ```
+
+### Demo
+
+Once installed, you should be able to see the Dashboard page where the history of past calculations are loaded. 
+
+![Image of Demo 1]https://user-images.githubusercontent.com/6851315/61604015-7aeb4900-ac72-11e9-98f1-9d012ceb5268.png
+
+Click the **New Calculate** button to see the Calculate NPV form.
+
+![Image of Demo 2]https://user-images.githubusercontent.com/6851315/61604392-ef72b780-ac73-11e9-8446-82490a884675.png
+
+Fill out the fields and click **Calculate NPV and Save** button
+
+![Image of Demo 3]https://user-images.githubusercontent.com/6851315/61604473-395b9d80-ac74-11e9-91f0-0d880b8643bd.png
+
+Results will be displayed and persisted in the database
+
+![Image of Demo 4]https://user-images.githubusercontent.com/6851315/61604477-3e205180-ac74-11e9-8221-92ec23bbceb1.png
+
+![Image of Demo 5]https://user-images.githubusercontent.com/6851315/61604515-67d97880-ac74-11e9-912a-470807e584f6.png
