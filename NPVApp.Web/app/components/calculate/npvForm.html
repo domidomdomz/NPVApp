@@ -36,7 +36,7 @@
         <div class="col-md-5">
             <div class="input-group" v-if="calculateNPVRequest.Id == 0">
                 <input id="LowerBoundDiscountRate" v-model="calculateNPVRequest.LowerBoundDiscountRate"
-                       type="number" min="0" max="99.999" step="0.01" maxlength="6"
+                       type="number" min="0.01" max="99.999" step="0.01" maxlength="6"
                        onkeypress="return isInputPositiveDecimal(event)" oninput="applyMaxlength(this)"
                        class="form-control input input-sm" />
                 <div class="input-group-append">

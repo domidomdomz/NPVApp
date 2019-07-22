@@ -58,6 +58,7 @@
     <Compile Include="Common\ErrorDetail.cs" />
     <Compile Include="Common\ErrorDetailCollection.cs" />
     <Compile Include="Common\ExceptionBase.cs" />
+    <Compile Include="Common\GreaterThanAttribute.cs" />
     <Compile Include="Common\Util.cs" />
     <Compile Include="Entities\CalculateNPVRequest.cs" />
     <Compile Include="Entities\CalculateNPVResult.cs" />

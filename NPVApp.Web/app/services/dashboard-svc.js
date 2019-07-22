@@ -13,10 +13,10 @@
         return {
             Id: 0,
             InitialInvestment: 0.00,
-            LowerBoundDiscountRate: 0.00,
-            UpperBoundDiscountRate: 0.00,
-            DiscountRateIncrement: 0.00,
-            CashFlows: [{ CashFlowValue: 0.00 }],
+            LowerBoundDiscountRate: 0.01,
+            UpperBoundDiscountRate: 0.01,
+            DiscountRateIncrement: 0.01,
+            CashFlows: [{ CashFlowValue: 0.00 }]
         };
     };
 

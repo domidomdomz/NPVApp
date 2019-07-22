@@ -12,6 +12,8 @@ namespace NPVApp.Business
         public const string AnErrorHasOccured = "An error has occured.";
         public const string FieldRequired = @"{0} is required.";
         public const string ValidationIssues = @"Unable to save record as there were validation issues.";
+        public const string MustBeGreaterThanOrEqualTo = @"{0} must be greater than or equal to {1}";
+        public const string AtLeast001 = @"{0} should be at least 0.01";
 
         public static string ConnectionString(string key)
         {

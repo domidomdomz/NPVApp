@@ -17,7 +17,8 @@
     cursor: pointer;
     padding: 5px;
     white-space: nowrap;
-    background-color: rgba(0,0,0,.03);
+    background-color: #444444;
+    color: #fff;
 }
 
 .grid-table th.sorted-asc::after {
@@ -94,4 +95,19 @@ span.validation-error {
     color: red;
     padding-bottom: 10px;
     font-size: 9pt;
+}
+
+.card-primary .card-header {
+    background-color: #003249;
+    color: #fff;
+}
+
+.btn-primary {
+    color: #fff;
+    background-color: #337ab7;
+    border-color: #337ab7;
+}
+
+a {
+    color: #337ab7;
 }

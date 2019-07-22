@@ -47,4 +47,3 @@ Press Ctrl + F5 to Build and Run the web application
 ![Image of Step 2.1](https://user-images.githubusercontent.com/6851315/61589679-239c9880-abe0-11e9-86e1-e064f468c748.png)
 
 ```
-
