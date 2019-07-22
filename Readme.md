@@ -14,7 +14,7 @@ Visual Studio 2017 or newer (Community Edition will do)
 
 ### Installing
 
-Publish database via Publish profile XML file
+**Publish database via Publish profile XML file**
 
 1. Inside NPVApp.Database folder, double-click NPVApp.Database.publish.xml
 ![Image of Step 1.1](https://user-images.githubusercontent.com/6851315/61589553-1e3e4e80-abde-11e9-8353-512fd4559b4e.png)
@@ -30,13 +30,13 @@ Publish database via Publish profile XML file
 ![Image of Step 1.4](https://user-images.githubusercontent.com/6851315/61589589-c8b67180-abde-11e9-8286-39a4dfc7b053.png)
 
 
-Modify the DB connection string on the Web.config
+**Modify the DB connection string on the Web.config**
 
 Inside NPVApp.Web, open the Wen.config file and modify the username and password for your local machine's SQL Server
 ![Image of Step 2.1](https://user-images.githubusercontent.com/6851315/61589638-7de92980-abdf-11e9-896b-d215ce5c8493.png)
 
 
-Build and Run the web application
+**Build and Run the web application**
 
 Press Ctrl + F5 to Build and Run the web application
 ![Image of Step 2.1](https://user-images.githubusercontent.com/6851315/61589679-239c9880-abe0-11e9-86e1-e064f468c748.png)
