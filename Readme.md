@@ -19,14 +19,14 @@ Publish database via Publish profile XML file
 1. Inside NPVApp.Database folder, double-click NPVApp.Database.publish.xml
 ![Image of Step 1.1](https://user-images.githubusercontent.com/6851315/61589553-1e3e4e80-abde-11e9-8353-512fd4559b4e.png)
 
-2. On the Publish Profile dialog, click "Edit" to specify your local machine's SQL Server credentials
+2. On the Publish Profile dialog, click **Edit** to specify your local machine's SQL Server credentials
 ![Image of Step 1.2](https://user-images.githubusercontent.com/6851315/61589565-5cd40900-abde-11e9-91b7-a4014f4fb6bc.png)
 
 ![Image of Step 1.3](https://user-images.githubusercontent.com/6851315/61589574-90169800-abde-11e9-8bc8-2806f1a48521.png)
 
-3. On the Publish Profile dialog again, if not filled, specify the Database as "npvapp"
+3. On the Publish Profile dialog again, if not filled, specify the Database as _*npvapp*_
 
-4. Click "Publish". On the Data Tools Operation window, a successful publish looks like this:
+4. Click **Publish**. On the Data Tools Operation window, a successful publish looks like this:
 ![Image of Step 1.4](https://user-images.githubusercontent.com/6851315/61589589-c8b67180-abde-11e9-8286-39a4dfc7b053.png)
 
 
@@ -46,18 +46,18 @@ Press Ctrl + F5 to Build and Run the web application
 
 Once installed, you should be able to see the Dashboard page where the history of past calculations are loaded. 
 
-![Image of Demo 1]https://user-images.githubusercontent.com/6851315/61604015-7aeb4900-ac72-11e9-98f1-9d012ceb5268.png
+![Image of Demo 1](https://user-images.githubusercontent.com/6851315/61604015-7aeb4900-ac72-11e9-98f1-9d012ceb5268.png)
 
 Click the **New Calculate** button to see the Calculate NPV form.
 
-![Image of Demo 2]https://user-images.githubusercontent.com/6851315/61604392-ef72b780-ac73-11e9-8446-82490a884675.png
+![Image of Demo 2](https://user-images.githubusercontent.com/6851315/61604392-ef72b780-ac73-11e9-8446-82490a884675.png)
 
 Fill out the fields and click **Calculate NPV and Save** button
 
-![Image of Demo 3]https://user-images.githubusercontent.com/6851315/61604473-395b9d80-ac74-11e9-91f0-0d880b8643bd.png
+![Image of Demo 3](https://user-images.githubusercontent.com/6851315/61604473-395b9d80-ac74-11e9-91f0-0d880b8643bd.png)
 
 Results will be displayed and persisted in the database
 
-![Image of Demo 4]https://user-images.githubusercontent.com/6851315/61604477-3e205180-ac74-11e9-8221-92ec23bbceb1.png
+![Image of Demo 4](https://user-images.githubusercontent.com/6851315/61604477-3e205180-ac74-11e9-8221-92ec23bbceb1.png)
 
-![Image of Demo 5]https://user-images.githubusercontent.com/6851315/61604515-67d97880-ac74-11e9-912a-470807e584f6.png
+![Image of Demo 5](https://user-images.githubusercontent.com/6851315/61604515-67d97880-ac74-11e9-912a-470807e584f6.png)
