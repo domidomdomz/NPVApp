@@ -6,11 +6,14 @@ This is a web application that calculates the Net Present Value for a given seri
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
 
+
+
 ### Prerequisites
 
 ```
 Visual Studio 2017 or newer (Community Edition will do)
 ```
+
 
 ### Installing
 
@@ -49,7 +52,9 @@ Change the *Minified* key in the Web.config to **"1"**
 ![Image of Step 3.2](https://user-images.githubusercontent.com/6851315/61605566-b7ba3e80-ac78-11e9-88f7-64da496f2a88.png)
 
 
-### Demo
+
+
+## Demo
 
 Once installed, you should be able to see the Dashboard page where the history of past calculations are loaded. 
 
