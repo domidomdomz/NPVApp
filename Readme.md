@@ -53,6 +53,7 @@ Visual Studio 2017 or newer (Community Edition will do)
 ![Image of Step 5.1](https://user-images.githubusercontent.com/6851315/61605565-b4bf4e00-ac78-11e9-9afe-218f1fa12c5d.png)
 
 5.2. Change the *Minified* key in the Web.config to **"1"**
+
 ![Image of Step 5.2](https://user-images.githubusercontent.com/6851315/61605566-b7ba3e80-ac78-11e9-88f7-64da496f2a88.png)
 
 
