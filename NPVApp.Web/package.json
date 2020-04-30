@@ -4,7 +4,7 @@
   "description": "Calculate Net Present Value App",
   "author": "Domz Ciriaco",
   "dependencies": {
-    "jquery": "^3.3.1",
+    "jquery": "^3.5.0",
     "bootstrap": "^4.1.0",
     "popper.js": "^1.14.3",
     "vue": "2.5.22",
