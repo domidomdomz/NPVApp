@@ -10,7 +10,7 @@
     "vue": "2.5.22",
     "vue-router": "^3.0.1",
     "tempusdominus-bootstrap-4": "^5.0.0-alpha18",
-    "moment": "^2.22.1",
+    "moment": "^2.29.4",
     "lodash": "^4.17.5",
     "notifyjs-browser": "^0.4.2",
     "sweetalert": "^2.1.0",
